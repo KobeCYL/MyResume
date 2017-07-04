@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<title>CSS3幻灯片3D切换特效 | jQuery特效|手机微信网站特效| 网页特效库</title>
+		<meta name="keywords" content="SVG特效, 手机微信网站特效, css3动画, html5特效, 网页特效" />
+		<meta name="description" content="网页特效库-专注于HTML5、CSS3、js、jQuery、手机移动端等网页特效的手机与分享。特效库始终坚持：无会员、无积分、无限制的“三无原则”，所有的资源都免费提供广大童鞋下载学习和使用。" />
+		<style>
+			#box{width:700px; height: 455px; background:url(images/bfanye0.jpg) no-repeat; margin:50px auto ; position:relative; perspective: 1200px; font-family: "microsoft yahei";}
+			#box .pag1{width: 50%; height: 100%; position: absolute; top: 0; right: 0; transform-style:preserve-3d; transistion:1s all ease; z-index:2; transform-origin:left center ;}
+			#box .pag1 span{width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
+			.front{background: url(images/bfanye0.jpg) no-repeat right top; transform: translateZ(1.1px);}
+			.back{background: url(images/bfanye1.jpg) no-repeat left top; transform: translateZ(-1.1px) scale(-1,1);}
+			.pag2{width:50%; position:absolute; right:0; top:0; height:100%; background:url(images/bfanye1.jpg) no-repeat right top; z-index:1;}
+		</style>
+		<script src="jquery-1.11.0.js"></script>
+		<script>
+			$(function(){
+				var oBox = document.getElementById('box');
+				var oPag = document.querySelector('#box .pag1');
+				var oFront = document.querySelector('#box .pag1 .front');
+				var oBack = document.querySelector('#box .pag1 .back');
+				var oPag2 = document.querySelector('#box .pag2');
+				
+				var iNow=0;
+				var bReady=true;
+				oBox.onclick = function(){
+					if(bReady==false) return;
+					bReady=false;
+					
+					iNow++;
+					oPag.style.transition = '1s all ease';
+					oPag.style.transform = 'rotateY(-180deg)';
+					
+					oPag.addEventListener('transitionend',function(){
+						oPag.style.transition = 'none';
+						oPag.style.transform = 'rotateY(0deg)';
+						
+						oFront.style.backgroundImage = oBox.style.backgroundImage = 'url(images/bfanye'+iNow%4+'.jpg)';  //4有几张banner就%几
+						oBack.style.backgroundImage = oPag2.style.backgroundImage = 'url(images/bfanye'+(iNow+1)%4+'.jpg)';
+						bReady=true;
+					},false);
+				}
+			})
+			setInterval(function(){
+					$("#box").trigger("click")
+			},2000)
+			$(function(){
+				$(".btn").click(function(){
+					$("#box").fadeToggle(); 
+				})	
+			})
+			
+		</script>
+	</head>
+	<body>
+	 	<div style="text-align:center; padding-top:40px">CSS3幻灯片3D切换特效</div>
+		<div id="box">
+			<div class="pag1">
+				<span class="front"></span>
+				<span class="back"></span>
+			</div>
+			<div class="pag2"></div>
+		</div>
+		
+		<div style="width: 100%; height: 50px; line-height: 50px; text-align: center;">
+			更多网页特效，请访问<a href="http://www.5iweb.com.cn"><b>网页特效库</b></a>,欢迎加入网页特效库QQ交流群：258242983
+		</div>
+		<div style="width: 220px; height: 150px; position: fixed; z-index: 1000; right: 0px;top:0px; background: #fff;">
+			<script type="text/javascript">
+			    var cpro_id = "u2586467";
+			</script>
+			<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+		</div>
+		
+	</body>
+	
+</html>

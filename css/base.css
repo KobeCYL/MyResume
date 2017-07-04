@@ -1,0 +1,43 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  text-decoration: none ;
+}
+input {
+  outline: none;
+}
+i,
+em,
+b,
+strong,
+s {
+  font-family: normal;
+}
+ul,
+li {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+@keyframes opacityLose {
+  0% {
+    opacity: 1;
+    z-index: 4;
+  }
+  100% {
+    opacity: 0;
+    z-index: -6;
+  }
+}
+@keyframes opacityReal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

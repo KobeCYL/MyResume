@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>基于jQuery环形图标菜单旋转切换特效</title>
+
+<link href='css/feature.presenter.1.5.css' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+</head>
+<body>
+
+<div id="test-element"></div>
+
+<script src="js/feature.presenter.1.5.min.js"></script>
+
+<script>
+
+/* 图片地址可以是相对路径或绝对路径；标题和描述可以包含HTML */
+var settings = [ {image: 'images/zzsc1.png', heading: '特效网', description: 'www.5iweb.com.cn'},
+				{ image: 'images/zzsc2.png', heading: '特效网', description: 'www.5iweb.com.cn' },
+				{ image: 'images/zzsc3.png', heading: '特效网', description: 'www.5iweb.com.cn' },
+				{ image: 'images/zzsc4.png', heading: '特效网', description: 'www.5iweb.com.cn' },
+				{ image: 'images/zzsc5.png', heading: '特效网', description: 'www.5iweb.com.cn' },
+				{ image: 'images/zzsc6.png', heading: '特效网', description: 'www.5iweb.com.cn' }
+				];
+
+var options = {
+	circle_radius: 220,
+	normal_feature_size: 100,
+	highlighted_feature_size: 150,
+	top_margin: 100,
+	bottom_margin: 50,
+	spacing: 40,
+	min_padding: 50,
+	heading_font_size: 30,
+	description_font_size: 20,
+	type: 'image'
+};
+
+var fp = new FeaturePresenter($("#test-element"), settings, options);
+fp.createPresenter();
+
+</script>
+
+
+</body>
+</html>
